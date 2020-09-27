@@ -7,6 +7,22 @@
     <router-view />
   </div>
 </template>
+<script>
+import { Ajax } from "./utils/api";
+import { deepCopy } from "./utils/format";
+export default {
+  name: "App",
+  data() {
+    return {
+      posts: []
+    };
+  },
+  async created() {
+    const { data } = await Ajax({ url: "posts", method: "get" });
+    this.posts = deepCopy(data);
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
