@@ -5,7 +5,7 @@ axios.interceptors.request.use(
     // Do something before request is sent
     config = {
       ...config,
-      baseURL: "https://jsonplaceholder.typicode.com/",
+      baseURL: process.env.VUE_APP_API_URL,
       headers: { "Access-Control-Allow-Origin": "*" }
     };
 
