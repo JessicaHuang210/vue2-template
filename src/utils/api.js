@@ -1,22 +1,37 @@
 import axios from "axios";
 
 axios.interceptors.request.use(
-  function(config) {
-    // Do something before request is sent
+  config => {
     config = {
       ...config,
-      baseURL: process.env.VUE_APP_API_URL,
-      headers: { "Access-Control-Allow-Origin": "*" }
+      baseURL: process.env.VUE_APP_API_URL
     };
 
     return config;
   },
   function(error) {
-    // Do something with request error
     return Promise.reject(error);
   }
 );
 
-export const Ajax = config => {
-  return axios(config);
+axios.interceptors.response.use(
+  response => response,
+  function(error) {
+    return Promise.reject(error);
+  }
+);
+
+export const Ajax = async config => {
+  try {
+    return await axios(config);
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response);
+    } else if (error.request) {
+      console.log(error.request);
+    } else {
+      console.log("Error", error.message);
+    }
+    return {};
+  }
 };

@@ -8,31 +8,12 @@
   </div>
 </template>
 <script>
-import { Ajax } from "./utils/api";
-import { deepCopy } from "./utils/format";
 export default {
-  name: "App",
-  data() {
-    return {
-      posts: []
-    };
-  },
-  async created() {
-    const { data } = await Ajax({ url: "posts", method: "get" });
-    this.posts = deepCopy(data);
-  }
+  name: "App"
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 #nav {
   padding: 30px;
 
