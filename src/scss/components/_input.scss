@@ -1,0 +1,9 @@
+.el-input__inner {
+  background-color: $color-bg-2;
+  border-color: $color-border-1;
+  color: $color-text-1;
+  &:hover,
+  &:focus {
+    border-color: $color-border-2;
+  }
+}

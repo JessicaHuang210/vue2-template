@@ -1,0 +1,8 @@
+.fade-down-enter-active,
+.fade-down-leave-active {
+  transition: all 0.5s;
+}
+.fade-down-enter, .fade-down-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(-50px);
+}
